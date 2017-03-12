@@ -1,0 +1,69 @@
+<h2>Registration Form</h2>
+<form novalidate [formGroup]="orderSheetForm" (ngSubmit)="onSubmitForm()">
+  <section class="inp">
+    <input formControlName="customerName" type="text" placeholder="Your Name">
+    <div *ngIf="customerNameControl.errors" class="errors">
+      <div *ngIf="customerNameControl.errors.required && (customerNameControl.touched || customerNameControl.dirty)">
+        Required!
+      </div>
+      <div *ngIf="customerNameControl.errors.minlength">
+        Must be at least {{customerNameControl.errors.minlength.requiredLength}} letters
+      </div>
+    </div>
+    
+  </section>
+  <section class="inp">
+    <input formControlName="userName" type="text" placeholder="User Name">
+    <div *ngIf="userNameControl.errors" class="errors">
+      <div *ngIf="userNameControl.errors.required && (userNameControl.touched || userNameControl.dirty)">
+        Required!
+      </div>
+      <div *ngIf="userNameControl.errors.minlength">
+        Must be at least {{userNameControl.errors.minlength.requiredLength}} letters
+      </div>
+    </div>
+   
+  </section>
+  <section class="inp">
+    <input formControlName="email" type="text" placeholder="Email Id">
+    <div *ngIf="emailControl.errors" class="errors">
+      <div *ngIf="emailControl.errors.required && (emailControl.touched || emailControl.dirty)">
+        Required!
+      </div>
+     
+    </div>
+    
+  </section>
+   <section class="inp">
+    <input formControlName="Mobile" type="text" placeholder="Mobile Number">
+    <div *ngIf="MobileControl.errors" class="errors">
+      <div *ngIf="MobileControl.errors.required && (MobileControl.touched || MobileControl.dirty)">
+        Required!
+      </div>
+     
+    </div>
+    
+  </section>
+   <section class="inp">
+    <input formControlName="Password" type="text" placeholder="Password">
+    <div *ngIf="PasswordControl.errors" class="errors">
+      <div *ngIf="PasswordControl.errors.required && (PasswordControl.touched || PasswordControl.dirty)">
+        Required!
+      </div>
+     
+    </div>
+    
+  </section>
+  <section class="inp">
+    <input formControlName="ConfirmPassword" type="text" placeholder="Confirm Password">
+    <div *ngIf="ConfirmPasswordControl.errors" class="errors">
+      <div *ngIf="ConfirmPasswordControl.errors.required && (ConfirmPasswordControl.touched || ConfirmPasswordControl.dirty)">
+        Required!
+      </div>
+    
+    </div>
+   
+  </section>
+  <button type="submit" [disabled]="!orderSheetForm.valid">Sumbit</button>
+  <button type="button" (click)="onResetForm()">Reset</button>
+</form>
